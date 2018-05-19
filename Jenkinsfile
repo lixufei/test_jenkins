@@ -15,6 +15,9 @@ pipeline {
         }
         success {
             echo 'This will run only if successful'
+            slackSend channel: '#test-slack',
+                  color: 'good',
+                  message: "The pipeline completed successfully."
         }
         failure {
             echo 'This will run only if failed'
