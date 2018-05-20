@@ -20,6 +20,7 @@ pipeline {
             echo 'LiuNian is happy!'
             echo 'ChenXin is happy!'
              echo 'ZengZhipeng is happy!'
+			 echo 'SunMing is happy!'
             slackSend channel: '#test-slack',
                   color: 'good',
                   message: "'LiuNian is happy!wangjie is happy."
@@ -34,6 +35,7 @@ pipeline {
             echo 'wangjie is not happy'
 			 echo 'xuya is not happy.'
 			 echo 'Zengzhipeng is not happy.'
+			 echo 'SunMing is not happy!'
             slackSend channel: '#test-slack',
                   color: 'danger',
                 message: "LiuNian is not happy!wangjie is not happy!"
