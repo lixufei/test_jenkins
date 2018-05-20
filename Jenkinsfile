@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'hello world'
-                sh 'nvm list'
+                sh 'npm -v'
                 sh 'node -v'
             }
         }
