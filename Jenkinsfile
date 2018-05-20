@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'hello world'
-                sh 'npm -v'
+                sh 'mm'
                 sh 'node -v'
             }
         }
@@ -19,14 +19,18 @@ pipeline {
             echo 'This will always run'
         }
         success {
-            echo 'This will run only if successful'
+            echo 'ChenXin is happy!'
             slackSend channel: '#test-slack',
                   color: 'good',
                   message: "周翔 is happy"
             sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'ChenXin is not happy!'
+            slackSend channel: '#test-slack',
+                color: 'danger',
+                message: "ChenXin is not happy!"
+            sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
         }
         unstable {
             echo 'This will run only if the run was marked as unstable'
