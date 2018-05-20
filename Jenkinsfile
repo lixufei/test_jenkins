@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'hello world'
-                sh 'npm -v'
+                sh '123'
                 sh 'node -v'
             }
         }
@@ -14,7 +14,7 @@ pipeline {
             echo 'This will always run'
         }
         success {
-            echo 'This will run only if successful'
+            echo 'LiuNian is happy!'
             slackSend channel: '#test-slack',
                   color: 'good',
                   message: "LiangLingrui is happy."
