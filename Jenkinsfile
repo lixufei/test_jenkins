@@ -18,12 +18,14 @@ pipeline {
 			echo 'xuya is happy!'
             echo 'LiuNian is happy!'
             echo 'ChenXin is happy!'
+             echo 'ZengZhipeng is happy!'
             slackSend channel: '#test-slack',
                   color: 'good',
                   message: "'LiuNian is happy!wangjie is happy."
 				  message: "xuya is happy."
                   message: "'LiuNian is happy!wangjie is happy.\n ZhouXiang/LiangLingRui/ChenXin is happy"
                   message: "'LiuNian is happy!wangjie is happy.\n ZhouXiang/LiangLingRui/ChenXin is happy.\n YangKaiGuang is happy"
+                  message: "'LiuNian is happy!wangjie is happy.\n ZhouXiang/LiangLingRui/ChenXin is happy.\n YangKaiGuang is happy.\n ZengZhipeng is happy"
             sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
         }
         failure {
