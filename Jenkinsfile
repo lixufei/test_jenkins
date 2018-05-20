@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'hello world'
+                echo 'hello world'
                 sh 'npm -v'
                 sh 'node -v'
             }
@@ -17,14 +17,14 @@ pipeline {
             echo 'wangjie is happy'
             slackSend channel: '#test-slack',
                   color: 'good',
-                  message: "The pipeline completed successfully."
+                  message: "wangjie is happy."
             sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
         }
         failure {
             echo 'wangjie is not happy'
              slackSend channel: '#test-slack',
                               color: 'good',
-                              message: "The pipeline completed faliure."
+                              message: "wangjie is not happy"
              sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
         }
         unstable {
