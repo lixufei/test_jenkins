@@ -7,6 +7,8 @@ pipeline {
                 sh 'nvm list'
                 sh 'node -v'
                 sh 'abc'
+                sh 'tangmingheng'
+                sh 'npm -v'
             }
         }
     }
@@ -22,9 +24,11 @@ pipeline {
              echo 'ZengZhipeng is happy!'
 			 echo 'SunMing is happy!'
 			 echo 'xk is happy!'
+			 echo 'tmh is happy!'
             slackSend channel: '#test-slack',
                   color: 'good',
                   message: "'LiuNian is happy!wangjie is happy."
+                  message: "'tmh is happy"
 				  message: "xuya is happy."
                   message: "'LiuNian is happy!wangjie is happy.\n ZhouXiang/LiangLingRui/ChenXin is happy"
                   message: "'LiuNian is happy!wangjie is happy.\n ZhouXiang/LiangLingRui/ChenXin is happy.\n YangKaiGuang is happy"
@@ -34,6 +38,7 @@ pipeline {
         }
         failure {
              echo 'LiangLingrui is not happy.'
+             echo 'tmh is not happy.'
             echo 'wangjie is not happy'
 			 echo 'xuya is not happy.'
 			 echo 'Zengzhipeng is not happy.'
@@ -43,6 +48,7 @@ pipeline {
                   color: 'danger',
                 message: "LiuNian is not happy!wangjie is not happy!"
                 message: "xuya is not happy."
+                message: "tmh is not happy."
                 message: "LiuNian is not happy!wangjie is not happy!\n ZhouXiang/LiangLingRui/ChenXin is not happy"
                  message: "Zengzhipeng is not happy."
                  message: "xk is not happy."
