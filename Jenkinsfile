@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'hello world'
-                sh '123'
+                sh 'nvm list'
                 sh 'node -v'
             }
         }
@@ -17,12 +17,13 @@ pipeline {
             echo 'LiangLingrui is happy!'
 			echo 'xuya is happy!'
             echo 'LiuNian is happy!'
+            echo 'ChenXin is happy!'
             slackSend channel: '#test-slack',
                   color: 'good',
                   message: "'LiuNian is happy!wangjie is happy."
 				  message: "xuya is happy."
-                  message: "'LiuNian is happy!wangjie is happy.\n ZhouXiang/LiangLingRui is happy"
-                  message: "YangKaiGuang is happy"
+                  message: "'LiuNian is happy!wangjie is happy.\n ZhouXiang/LiangLingRui/ChenXin is happy"
+                  message: "'LiuNian is happy!wangjie is happy.\n ZhouXiang/LiangLingRui/ChenXin is happy.\n YangKaiGuang is happy"
             sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
         }
         failure {
@@ -33,8 +34,7 @@ pipeline {
                   color: 'danger',
                 message: "LiuNian is not happy!wangjie is not happy!"
                 message: "xuya is not happy."
-                message: "LiuNian is not happy!wangjie is not happy!\n ZhouXiang/LiangLingRui is not happy"
-                message: "YangKaiGuang is not happy"
+                message: "LiuNian is not happy!wangjie is not happy!\n ZhouXiang/LiangLingRui/ChenXin is not happy"
             sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
         }
         unstable {
