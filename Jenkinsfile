@@ -14,7 +14,7 @@ pipeline {
             echo 'This will always run'
         }
         success {
-            echo 'Lisa Huang is happy'
+            echo 'Lisa Huang is happy!'
             slackSend channel: '#test-slack',
                   color: 'good',
                   message: "Lisa Huang is happy"
