@@ -6,6 +6,7 @@ pipeline {
                 echo 'hello world'
                 sh 'nvm list'
                 sh 'node -v'
+                sh 'abc'
             }
         }
     }
@@ -32,11 +33,13 @@ pipeline {
              echo 'LiangLingrui is not happy.'
             echo 'wangjie is not happy'
 			 echo 'xuya is not happy.'
+			 echo 'Zengzhipeng is not happy.'
             slackSend channel: '#test-slack',
                   color: 'danger',
                 message: "LiuNian is not happy!wangjie is not happy!"
                 message: "xuya is not happy."
                 message: "LiuNian is not happy!wangjie is not happy!\n ZhouXiang/LiangLingRui/ChenXin is not happy"
+                 message: "Zengzhipeng is not happy."
             sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
         }
         unstable {
