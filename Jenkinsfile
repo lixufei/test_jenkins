@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo 'hello world'
-                sh 'mm'
+                sh 'hello world'
+                sh 'npm -v'
                 sh 'node -v'
             }
         }
@@ -19,18 +19,22 @@ pipeline {
             echo 'This will always run'
         }
         success {
-            echo 'ChenXin is happy!'
+            echo 'wangjie is happy'
             slackSend channel: '#test-slack',
                   color: 'good',
+<<<<<<< HEAD
                   message: "周翔 is happy"
+=======
+                  message: "The pipeline completed successfully."
+>>>>>>> 98f40f34375ed7040266f4c444f819102faeac02
             sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
         }
         failure {
-            echo 'ChenXin is not happy!'
-            slackSend channel: '#test-slack',
-                color: 'danger',
-                message: "ChenXin is not happy!"
-            sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
+            echo 'wangjie is not happy'
+             slackSend channel: '#test-slack',
+                              color: 'good',
+                              message: "The pipeline completed faliure."
+             sh 'curl -F file=@siwo-thoughtworks.png -F channels=#test-slack -F token=xoxp-351277970144-360652542944-367054471605-fa0e8e39ba0600a74c4d91544f5f7ccb https://slack.com/api/files.upload'
         }
         unstable {
             echo 'This will run only if the run was marked as unstable'
